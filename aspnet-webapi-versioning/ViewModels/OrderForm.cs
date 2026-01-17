@@ -2,8 +2,16 @@
 {
     public class OrderForm
     {
-        public int? OrderId { get; set; }
-        public int? ProductId { get; set; } = default!;
-        public int? Quantity { get; set; }
+        public string OrderId { get; set; }
+        public DateTime OrderDate { get; set; }
+        public string CustomerId { get; set; }
+        public string CustomerName { get; set; }
+        public string Status { get; set; }
+        public int ItemCount { get; set; }
+        public decimal Subtotal { get; set; }
+        public decimal Tax { get; set; }
+        public decimal TotalAmount { get; set; }
+        public string Currency { get; set; }
+        public string PaymentStatus { get; set; }
     }
 }

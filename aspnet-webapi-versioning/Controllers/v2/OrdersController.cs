@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using aspnet_webapi_versioning.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace aspnet_webapi_versioning.Controllers.v2
 {
@@ -13,18 +14,30 @@ namespace aspnet_webapi_versioning.Controllers.v2
         [HttpGet]
         public string Get()
         {
-            return "Orders information from API v2";
+            var order = new OrderForm
+            {
+                OrderId = "ORD-100245",
+                OrderDate = DateTime.UtcNow,
+                CustomerId = "CUST-78901",
+                CustomerName = "Tom Hanks",
+                Status = "confirmed",
+                ItemCount = 3,
+                Subtotal = 141.97m,
+                Tax = 11.36m,
+                TotalAmount = 153.33m,
+                Currency = "USD",
+                PaymentStatus = "paid"
+            };
+            var json = JsonConvert.SerializeObject(order, Formatting.Indented);
+            return $"Orders information from API v2 : {json}";
         }
 
         [MapToApiVersion("2.0")]
         [HttpPost]
         public string Post([FromForm] OrderForm requestForm)
         {
-            if (requestForm.Quantity.HasValue && requestForm.ProductId.HasValue)
-            {
-                return $"Post from API v2, Product ID: {requestForm.Quantity.Value}, Quantity: {requestForm.ProductId.Value}";
-            }
-            return "Post Orders information from API v2";
+            var json = JsonConvert.SerializeObject(requestForm);
+            return $"Post from API v2 : {json}";
         }
 
         [MapToApiVersion("2.0")]
