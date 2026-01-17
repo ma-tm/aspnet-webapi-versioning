@@ -28,9 +28,9 @@ namespace aspnet_webapi_versioning.Swagger
         {
             var info = new OpenApiInfo
             {
-                Title = "Order Management",
+                Title = "Orders Management",
                 Version = description.ApiVersion.ToString(),
-                Description = "Order Management using ASP.NET Web API with Versioning and Swagger.",
+                Description = "Orders Management using ASP.NET Web API with Versioning and Swagger.",
                 Contact = new OpenApiContact
                 {
                     Name = "M.A - Thrift Metrics",
