@@ -7,13 +7,13 @@ namespace aspnet_webapi_versioning.Controllers.v2
     [ApiVersion("2.0")]
     [Route("api/v{version:apiversion}/[controller]")]
     [ApiController]
-    public class OrderController : ControllerBase
+    public class OrdersController : ControllerBase
     {
         [MapToApiVersion("2.0")]
         [HttpGet]
         public string Get()
         {
-            return "Order information from API v2";
+            return "Orders information from API v2";
         }
     }
 }
