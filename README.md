@@ -1,6 +1,6 @@
 # aspnet-webapi-versioning
 
-Minimal ASP.NET Core Web API demonstrating API versioning and Swagger/OpenAPI generation.
+ASP.NET Core Web API demonstrating API versioning and Swagger/OpenAPI generation.
 
 ## Tech stack
 
