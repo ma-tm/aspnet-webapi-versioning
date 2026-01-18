@@ -14,7 +14,7 @@ namespace aspnet_webapi_versioning.Controllers.v1
 
         [MapToApiVersion("1.0")]
         [HttpGet]
-        public string Get()
+        public async Task<IActionResult> Get()
         {
             var order = new OrderForm
             {
@@ -30,8 +30,12 @@ namespace aspnet_webapi_versioning.Controllers.v1
                 Currency = "USD",
                 PaymentStatus = "paid"
             };
-            var json = JsonConvert.SerializeObject(order, Formatting.Indented);
-            return $"Orders information from API v1 : {json}";
+            var apiResponse = new
+            {
+                version = "v1",
+                data = order
+            };
+            return Ok(apiResponse);
         }
 
         [MapToApiVersion("1.0")]

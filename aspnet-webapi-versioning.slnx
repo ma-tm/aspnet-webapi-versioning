@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Dockerfile" />
+  </Folder>
   <Project Path="aspnet-webapi-versioning/aspnet-webapi-versioning.csproj" Id="f2dfce6d-a14d-4d6d-9111-d1fc66f459fd" />
 </Solution>
