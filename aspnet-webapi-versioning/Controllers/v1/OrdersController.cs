@@ -16,7 +16,7 @@ namespace aspnet_webapi_versioning.Controllers.v1
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var order = new OrderForm
+            var order = new OrderFormV1
             {
                 OrderId = "ORD-100245",
                 OrderDate = DateTime.UtcNow,
@@ -40,7 +40,7 @@ namespace aspnet_webapi_versioning.Controllers.v1
 
         [MapToApiVersion("1.0")]
         [HttpPost]
-        public string Post([FromForm] OrderForm requestForm)
+        public string Post([FromForm] OrderFormV1 requestForm)
         {
             var json = JsonConvert.SerializeObject(requestForm);
             return $"Post from API v1 : {json}";

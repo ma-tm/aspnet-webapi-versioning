@@ -14,7 +14,7 @@ namespace aspnet_webapi_versioning.Controllers.v2
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var order = new OrderForm
+            var order = new OrderFormV2
             {
                 OrderId = "ORD-100245",
                 OrderDate = DateTime.UtcNow,
@@ -27,6 +27,10 @@ namespace aspnet_webapi_versioning.Controllers.v2
                 TotalAmount = 153.33m,
                 Currency = "USD",
                 PaymentStatus = "paid",
+                // v2 properties
+                ShippingAddress = "123 Main St, Springfield, IL 62701",
+                CustomerEmail = "tom.hanks.123@gmail.com",
+                CustomerPhone = "555-123-4567"
             };
             var apiResponse = new
             {
@@ -38,7 +42,7 @@ namespace aspnet_webapi_versioning.Controllers.v2
 
         [MapToApiVersion("2.0")]
         [HttpPost]
-        public string Post([FromForm] OrderForm requestForm)
+        public string Post([FromForm] OrderFormV2 requestForm)
         {
             var json = JsonConvert.SerializeObject(requestForm);
             return $"Post from API v2 : {json}";
